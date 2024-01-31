@@ -23,7 +23,7 @@ public class StudentController {
 
 
 	@GetMapping("/studentId/{studentId}")
-	EndpointResponse<StudentDto> getStudentByUuid(@PathVariable String studentId){
+	EndpointResponse<StudentDto> getStudentById(@PathVariable String studentId){
 		return new EndpointResponse<>(studentService.getByStudentId(studentId),null);
 	}
 
