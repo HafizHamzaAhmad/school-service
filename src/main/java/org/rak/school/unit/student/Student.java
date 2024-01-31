@@ -2,11 +2,6 @@ package org.rak.school.unit.student;
 
 import jakarta.persistence.*;
 
-/**
- * @author Usman
- * @created 1/23/2024 - 12:51 AM
- * @project Microservices-assessment
- */
 import lombok.*;
 import org.rak.school.unit.grade.Grade;
 

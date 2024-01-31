@@ -2,11 +2,6 @@ package org.rak.school.dto;
 
 import org.springframework.http.ProblemDetail;
 
-/**
- * @author Usman
- * @created 1/23/2024 - 1:10 AM
- * @project Microservices-assessment
- */
 
 import lombok.*;
 
