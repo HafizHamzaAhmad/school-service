@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping(path = "/")
 public class FeeCollectionController {
 
-	private Command<FeeCollectionDto> feeCollection;
+	private final Command<FeeCollectionDto> feeCollection;
 
 	public FeeCollectionController(FeeCollection feeCollection) {
 		this.feeCollection = feeCollection;
@@ -19,7 +19,7 @@ public class FeeCollectionController {
 
 
 	@PostMapping("/collect-fee")
-	EndpointResponse<Void> getFeeRecordByStudentId(@RequestBody FeeCollectionDto feeCollectionDto){
+	EndpointResponse<Void> collectFee(@RequestBody FeeCollectionDto feeCollectionDto){
 		feeCollection.execute(feeCollectionDto);
 		return new EndpointResponse<>(null,null);
 	}
