@@ -1,6 +1,7 @@
 package org.rak.school.adapter.fee;
 
 import org.rak.school.adapter.transaction.FeeResponseDto;
+import org.rak.school.config.BaseUrlConfig;
 import org.springframework.stereotype.Service;
 import org.springframework.web.reactive.function.client.WebClient;
 import reactor.core.publisher.Mono;
@@ -9,8 +10,8 @@ import reactor.core.publisher.Mono;
 public class FeeManagementServiceAdapter {
     private final WebClient webClient;
 
-    public FeeManagementServiceAdapter(WebClient.Builder webClientBuilder) {
-        this.webClient = webClientBuilder.baseUrl("http://localhost:8082/fee-service").build();
+    public FeeManagementServiceAdapter(WebClient.Builder webClientBuilder, BaseUrlConfig baseUrlConfig) {
+        this.webClient = webClientBuilder.baseUrl(baseUrlConfig.getFeeBaseUrl()).build();
     }
 
     public FeeDto getFee(String type, String category, String subCategory, String frequency) {

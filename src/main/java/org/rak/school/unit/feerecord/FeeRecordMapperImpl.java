@@ -2,6 +2,8 @@ package org.rak.school.unit.feerecord;
 
 import org.rak.school.interfaces.Mapper;
 
+import java.util.UUID;
+
 @org.rak.school.annotation.Mapper
 public class FeeRecordMapperImpl implements Mapper<FeeRecordDto, FeeRecord> {
 	@Override
@@ -20,7 +22,7 @@ public class FeeRecordMapperImpl implements Mapper<FeeRecordDto, FeeRecord> {
 	@Override
 	public FeeRecord toEntity(FeeRecordDto dto) {
 	    return FeeRecord.builder()
-	    		.uuid(dto.getUuid())
+	    		.uuid(UUID.randomUUID().toString())
 	    		.studentId(dto.getStudentId())
 	    		.feeType(dto.getFeeType())
 	    		.feeMonth(dto.getFeeMonth())

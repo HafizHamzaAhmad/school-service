@@ -1,5 +1,6 @@
 package org.rak.school.adapter.transaction;
 
+import org.rak.school.config.BaseUrlConfig;
 import org.springframework.stereotype.Service;
 import org.springframework.web.reactive.function.client.WebClient;
 import reactor.core.publisher.Mono;
@@ -8,8 +9,8 @@ import reactor.core.publisher.Mono;
 public class TransactionServiceAdapter {
     private final WebClient webClient;
 
-    public TransactionServiceAdapter(WebClient.Builder webClientBuilder) {
-        this.webClient = webClientBuilder.baseUrl("http://localhost:8080/transaction-service").build();
+    public TransactionServiceAdapter(WebClient.Builder webClientBuilder, BaseUrlConfig baseUrlConfig) {
+        this.webClient = webClientBuilder.baseUrl(baseUrlConfig.getTransactionBaseUrl()).build();
     }
 
 

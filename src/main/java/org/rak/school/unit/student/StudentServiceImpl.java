@@ -50,7 +50,11 @@ public class StudentServiceImpl implements BusinessService<StudentDto> {
 
     public StudentDto getByStudentId(String studentId) {
         return repository.findByStudentId(studentId)
-                .map(mapper::toDto)
+                .map((entity) -> {
+                    StudentDto studentDto = mapper.toDto(entity);
+                    studentDto.setGrade(entity.getGrade().getName());
+                    return studentDto;
+                })
                 .orElseThrow(() -> new ApplicationException(ERROR_NOT_FOUND, "student"));
     }
 
